@@ -1,4 +1,10 @@
-# NandOS
+<br />
+<p align="center">
+  <a href="https://github.com/OfficialScragg/NandOS">
+    <img src="assets/NandOS.jpg" alt="Logo" width="80" height="80">
+  </a>
+  <h3 align="center">NandOS</h3>
+</p>
 
 A simple OS created during the process of learning about operating systems, low level programming, early stages of system start up and the primitive BIOS environment.
 
