@@ -31,8 +31,8 @@
     jmp $   ; Jump to current location forever
 
 ; External functions
-%include "print.asm"    ; Load printing functions
-%include "disk.asm"     ; Load disk related functions
+%include "./lib/print.asm"    ; Load printing functions
+%include "./lib/disk.asm"     ; Load disk related functions
 
 ; Variables
 HEADER: db "+--------+", 0x0A, 0x0D, "| NandOS |", 0x0A, 0x0D, "+--------+", 0x0A, 0x0D, 0x00
