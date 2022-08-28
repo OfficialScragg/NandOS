@@ -1,4 +1,5 @@
-;   print_string -> Print the string at address stored in dx 
+;   16 bit real mode printing functions
+;   print_string -> Print the string at address stored in dx
 ;   Parameters:
 ;       bx = Address of string (mov bx, VAR)
 print_string:

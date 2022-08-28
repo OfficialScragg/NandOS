@@ -26,13 +26,15 @@
     mov dx, [0x9000 + bx]   ; Retrieve bytes from sector 3
     mov bx, HEX_RES         ; Set return address for data
     call print_hex          ; Send data from 0x9000+SECTOR_SIZE to HEX_RES
-    call print_string       ; Print data in HEX_RES
+    call print_string      ; Print data in HEX_RES
 
     jmp $   ; Jump to current location forever
 
 ; External functions
-%include "./lib/print.asm"    ; Load printing functions
-%include "./lib/disk.asm"     ; Load disk related functions
+%include "./lib/print.asm"      ; Load printing functions
+%include "./lib/print_32.asm"   ; Load 32bit printing functions
+%include "./lib/disk.asm"       ; Load disk related functions
+%include "./lib/gdt.asm"        ; Load GDT definition function
 
 ; Variables
 HEADER: db "+--------+", 0x0A, 0x0D, "| NandOS |", 0x0A, 0x0D, "+--------+", 0x0A, 0x0D, 0x00
