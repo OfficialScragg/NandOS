@@ -28,16 +28,27 @@
     call print_hex          ; Send data from 0x9000+SECTOR_SIZE to HEX_RES
     call print_string      ; Print data in HEX_RES
 
-    jmp $   ; Jump to current location forever
+    CALL switch_to_32bit_pm
 
 ; External functions
 %include "./lib/print.asm"      ; Load printing functions
-%include "./lib/print_32.asm"   ; Load 32bit printing functions
 %include "./lib/disk.asm"       ; Load disk related functions
 %include "./lib/gdt.asm"        ; Load GDT definition function
+%include "./lib/32_pm.asm"
+
+[bits 32]
+
+%include "./lib/print_32.asm"   ; Load 32bit printing functions
+
+start_pm:   ; The beginning of 32bit mode code
+    mov ebx, PM_LOADED  ; Load message as parameter
+    call print_string_32   ; Call print for 32bit mode
+
+    jmp $   ; Jump to current location forever
 
 ; Variables
 HEADER: db "+--------+", 0x0A, 0x0D, "| NandOS |", 0x0A, 0x0D, "+--------+", 0x0A, 0x0D, 0x00
+PM_LOADED: db "Loaded 32bit Protected Mode.", 0x00
 HEX_RES: db "0x0000", 0x0A, 0x0D, 0x00  ; Used to retrieve HEX string value
 BOOT_DRIVE: db 0    ; Number of the drive with our boot sector on it (Given by BIOS)
 SECTOR_SIZE: dw 512 ; Sectors on disks are 512 bytes

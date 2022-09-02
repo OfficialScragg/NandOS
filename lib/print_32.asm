@@ -1,5 +1,4 @@
 ;   32 bit printing functions
-[bits 32]
 
 VIDEO_MEM equ 0xb8000
 WHITE_ON_BLACK equ 0x0f
