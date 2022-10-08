@@ -8,8 +8,7 @@
 
 A simple OS created during the process of learning about operating systems, low level programming, early stages of system start up and the primitive BIOS environment.
 
-### Features to be implemented:
-   - Bootstrapping C compilation and usage
+### Features to be implemented
    - Simple terminal interaction functionality
    - Simple games
       - Snake
