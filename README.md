@@ -14,6 +14,7 @@ A simple OS created during the process of learning about operating systems, low 
       - Snake
       - Space invaders
       - Tetris
+   - Simple File System
    - Text editor
 
 ### Resources
